@@ -6911,7 +6911,12 @@
 
   <script>
     const assetBase = window.location.protocol === "file:" ? "public/" : "";
-    const resolveAssetPath = path => path && path.startsWith("videos/") ? `${assetBase}${path}` : path;
+    const resolveAssetPath = path => {
+      if (!path) return path;
+      if (path.startsWith("videos/")) return `${assetBase}${path}`;
+      if (path.startsWith("public/")) return window.location.protocol === "file:" ? path : path.slice(7);
+      return path;
+    };
 
     document.querySelectorAll("button.community-post-open").forEach(button => {
       const postLink = document.createElement("div");
