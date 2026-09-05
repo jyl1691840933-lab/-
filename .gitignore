@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.superpowers/
+.vercel-cli-data/
+.vercel-cli-local/
+__pycache__/
+*.pyc
+.env
+.env.local
+server_out.txt
+server_err.txt
+*.log
