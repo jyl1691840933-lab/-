@@ -34,6 +34,19 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Debug dist contents
+        run: |
+          echo "=== dist root ==="
+          ls -la dist/
+          echo "=== dist/videos ==="
+          ls -la dist/videos/ 2>/dev/null || echo "videos not found"
+          echo "=== dist/photograph ==="
+          ls -la dist/photograph/ 2>/dev/null || echo "photograph not found"
+          echo "=== dist/assets ==="
+          ls -la dist/assets/ 2>/dev/null || echo "assets not found"
+          echo "=== public dir ==="
+          ls -la public/ 2>/dev/null || echo "public not found"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
